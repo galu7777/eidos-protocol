@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://cuw6gm6ntemi8"]
+
+[ext_resource type="Texture2D" uid="uid://lrjhpbs4qohf" path="res://assets/enemies/robot-dot.png" id="1_fq3b7"]
+[ext_resource type="Script" uid="uid://c68r1vju7hkhc" path="res://scripts/robot_dot.gd" id="1_xwkos"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwkos"]
+atlas = ExtResource("1_fq3b7")
+region = Rect2(78, 0, 39, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5qhi"]
+atlas = ExtResource("1_fq3b7")
+region = Rect2(156, 0, 39, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t0ny"]
+atlas = ExtResource("1_fq3b7")
+region = Rect2(195, 0, 39, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bhakr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwkos")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5qhi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8t0ny")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4c70i"]
+radius = 12.0
+
+[node name="robot-dot" type="Area2D"]
+script = ExtResource("1_xwkos")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1.75, 1.75)
+scale = Vector2(1.0897436, 1.109375)
+sprite_frames = SubResource("SpriteFrames_bhakr")
+animation = &"walk"
+autoplay = "walk"
+frame_progress = 0.9338063
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 3)
+shape = SubResource("CircleShape2D_4c70i")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0109999999999997
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
