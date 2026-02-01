@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cgsgxxih3kosl"]
+[gd_scene format=3 uid="uid://cgsgxxih3kosl"]
 
 [ext_resource type="Script" uid="uid://ci1okm3sv2ejy" path="res://scripts/mask.gd" id="1_0d8jk"]
 [ext_resource type="Texture2D" uid="uid://byx812nae5n3" path="res://assets/collectibles/Collected.png" id="1_rv8xw"]
@@ -89,15 +89,16 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rv8xw"]
 
-[node name="Mask" type="Area2D"]
+[node name="Mask" type="Area2D" unique_id=1728501280]
+scale = Vector2(2, 2)
 script = ExtResource("1_0d8jk")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1259061638]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_ngpd7")
 autoplay = "default"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1255302645]
 position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_rv8xw")
 

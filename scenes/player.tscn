@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bqufu4qyq6rsj"]
+[gd_scene format=3 uid="uid://bqufu4qyq6rsj"]
 
 [ext_resource type="Texture2D" uid="uid://bwb1ja5rvf7y4" path="res://assets/null-base/idle.png" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://ccxt54442iplp" path="res://assets/null-base/attack.png" id="1_dqkch"]
@@ -153,12 +153,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tuyoq"]
 size = Vector2(12.000001, 20.5)
 
-[node name="player" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D" unique_id=543694874]
 position = Vector2(576, 323)
 scale = Vector2(2, 2)
 script = ExtResource("1_tuyoq")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=107631253]
 texture_filter = 1
 position = Vector2(-0.5, 0.5)
 scale = Vector2(1, 0.96875)
@@ -166,20 +166,20 @@ sprite_frames = SubResource("SpriteFrames_ke2ow")
 animation = &"attack"
 autoplay = "idle"
 
-[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="." unique_id=871591116]
 stream = ExtResource("6_fjrip")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=570638967]
 position = Vector2(-0.5, -3.75)
 shape = SubResource("RectangleShape2D_tuyoq")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=635193585]
 position = Vector2(0, 5)
 limit_left = 0
 limit_top = 0
 limit_right = 4000
 limit_bottom = 648
 
-[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=158415300]
 position = Vector2(0.5, 1.5)
 stream = ExtResource("7_fjrip")
